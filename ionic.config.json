@@ -1,0 +1,7 @@
+{
+  "name": "winddreieck",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
