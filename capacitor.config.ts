@@ -1,7 +1,7 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
+  appId: 'ch.landrus.windtriangle',
   appName: 'winddreieck',
   webDir: 'www',
   bundledWebRuntime: false

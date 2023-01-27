@@ -1,0 +1,64 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Winddreieck</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Winddreieck</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list lines="none">
+    <!--ion-item>
+      <ion-label>Mode</ion-label>
+      <ion-radio-group [(ngModel)]="mode">
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label>Course</ion-label>
+              <ion-radio [value]="type.CALC_COURSE"></ion-radio>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item>
+              <ion-label>Wind</ion-label>
+              <ion-radio [value]="type.CALC_WIND"></ion-radio>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-radio-group>
+    </ion-item-->
+    <ion-item>
+      <ion-label class="fixedLabel">TAS</ion-label>
+      <ion-input class="right" type="number" [(ngModel)]="triangle.trueAirSpeed" (ionChange)="modeChanged()"/><span class="unit">kt</span>
+    </ion-item>
+    <ion-item>
+      <ion-label class="fixedLabel">TC</ion-label>
+      <ion-input class="right" type="number" [(ngModel)]="triangle.trueCourse" (ionChange)="modeChanged()"/><span class="unit">°</span>
+    </ion-item>
+    <ion-item>
+      <ion-label class="fixedLabel">WS</ion-label>
+      <ion-input class="right" type="number" [(ngModel)]="triangle.windSpeed" (ionChange)="modeChanged()"/><span class="unit">kt</span>
+    </ion-item>
+    <ion-item>
+      <ion-label class="fixedLabel">WD</ion-label>
+      <ion-input class="right" type="number" [(ngModel)]="triangle.windDirection" (ionChange)="modeChanged()"/><span class="unit">°</span>
+    </ion-item>
+    <ion-item>
+      <ion-label class="fixedLabel">TH</ion-label>
+      <ion-input class="right" type="number" [(ngModel)]="triangle.trueHeading" [disabled]="mode === type.CALC_COURSE"/><span class="unit">°</span>
+    </ion-item>
+    <ion-item>
+      <ion-label class="fixedLabel">GS</ion-label>
+      <ion-input class="right" type="number" [(ngModel)]="triangle.groundSpeed" [disabled]="mode === type.CALC_COURSE"/><span class="unit">kt</span>
+    </ion-item>
+    <ion-item>
+      <ion-label class="fixedLabel">WCA</ion-label>
+      <ion-input class="right" type="number" [(ngModel)]="triangle.windCorrectionAngle" [disabled]="mode === type.CALC_COURSE"/><span class="unit">°</span>
+    </ion-item>
+  </ion-list>
+  <div class="svg" [innerHTML]="svg"></div>
+</ion-content>
