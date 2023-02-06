@@ -1,0 +1,10 @@
+.angular/
+node_modules/
+www/
+
+android/.gradle/
+android/.idea/
+android/app/build
+android/app/src/main/assets
+android/capacitor-cordova-android-plugins/
+android/local.properties

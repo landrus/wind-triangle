@@ -62,19 +62,40 @@ export class WindTrianglePage implements OnInit {
 
     var svgText =
      `<svg id='triangle' xmlns='http://www.w3.org/2000/svg' viewBox='-5 -5 ${ radius * 2 + 5 } ${ radius * 2 + 5 }'>
+        <defs>
+          <marker id="singleArrow" markerWidth="10" markerHeight="10"
+                  refX="0" refY="3" orient="auto" markerUnits="strokeWidth">
+            <path d="M0,1 l8,2 l-8,2" stroke="green" fill="none"/>
+          </marker>
+          <marker id="doubleArrow" markerWidth="20" markerHeight="10"
+                  refX="0" refY="3" orient="auto" markerUnits="strokeWidth">
+            <path d="M0,1 l8,2 l-8,2" stroke="blue" fill="none"/>
+            <path d="M5,1 l8,2 l-8,2" stroke="blue" fill="none"/>
+          </marker>
+          <marker id="trippleArrow" markerWidth="30" markerHeight="10"
+                  refX="0" refY="3" orient="auto" markerUnits="strokeWidth">
+            <path d="M0,1 l8,2 l-8,2" stroke="red" fill="none"/>
+            <path d="M5,1 l8,2 l-8,2" stroke="red" fill="none"/>
+            <path d="M10,1 l8,2 l-8,2" stroke="red" fill="none"/>
+          </marker>
+        </defs>
+     
         <circle cx='${ radius }' cy='${ radius }' r='${ radius }' stroke='gray' fill='none' />
 
-        <path id='WND' stroke='red'
+        <path id='WND' stroke='red' marker-mid='url(#trippleArrow)'
               d='M ${ wcLineStartX } ${ wcLineStartY }
+                 L ${ this.midPointPercentage(wcLineStartX, wcLineStopX, 17) } ${ this.midPointPercentage(wcLineStartY, wcLineStopY, 17) }
                  L ${ wcLineStopX } ${ wcLineStopY }' />
-        <path id='TH' stroke='green'
+        <path id='TH' stroke='green' marker-mid='url(#singleArrow)'
               d='M ${ tasLineStartX } ${ tasLineStartY }
+                 L ${ this.midPointPercentage(tasLineStartX, tasLineStopX, 48) } ${ this.midPointPercentage(tasLineStartY, tasLineStopY, 48) }
                  L ${ tasLineStopX } ${ tasLineStopY }' />
-        <path id='TC' stroke='blue'
+        <path id='TC' stroke='blue' marker-mid='url(#doubleArrow)'
               d='M ${ tcLineStartX } ${ tcLineStartY }
+                 L ${ this.midPointPercentage(tcLineStartX, tcLineStopX, 45) } ${ this.midPointPercentage(tcLineStartY, tcLineStopY, 45) }
                  L ${ tcLineStopX } ${ tcLineStopY }' />
         
-        <text fill='red' font-size='8'>
+        <!--text fill='red' font-size='8'>
           <textPath xlink:href='#WND' startOffset='50%' text-anchor='middle'>WND</textPath>
         </text>
         <text fill='green' font-size='8'>
@@ -82,10 +103,14 @@ export class WindTrianglePage implements OnInit {
         </text>
         <text fill='blue' font-size='8'>
           <textPath xlink:href='#TC' startOffset='50%' text-anchor='middle'>TC</textPath>
-        </text>
+        </text-->
       </svg>`
 
     this.svg = this.sanitizer.bypassSecurityTrustHtml(svgText);
+  }
+
+  midPointPercentage(start: number, end: number, percentage: number) {
+    return start + (end - start) * percentage / 100;
   }
 
   toDegrees(radians: number) {
