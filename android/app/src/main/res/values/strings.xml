@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">winddreieck</string>
-    <string name="title_activity_main">winddreieck</string>
-    <string name="package_name">io.ionic.starter</string>
-    <string name="custom_url_scheme">io.ionic.starter</string>
+    <string name="app_name">Winddreieck</string>
+    <string name="title_activity_main">Winddreieck</string>
+    <string name="package_name">ch.landrus.mobile</string>
+    <string name="custom_url_scheme">ch.landrus.mobile</string>
 </resources>
