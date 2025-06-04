@@ -2,7 +2,7 @@
   "name": "winddreieck",
   "version": "1.0.0",
   "author": "Christian Domsch",
-  "homepage": "https://landrus.de/",
+  "homepage": "https://landrus.de",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
